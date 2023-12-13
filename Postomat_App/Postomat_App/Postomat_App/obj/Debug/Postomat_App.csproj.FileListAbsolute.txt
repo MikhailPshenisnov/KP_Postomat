@@ -1,0 +1,15 @@
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\bin\Debug\Postomat_App.exe.config
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\bin\Debug\Postomat_App.exe
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\bin\Debug\Postomat_App.pdb
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.csproj.AssemblyReference.cache
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\MainWindow.g.cs
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\App.g.cs
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App_MarkupCompile.cache
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App_MarkupCompile.lref
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\MainWindow.baml
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.g.resources
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.Properties.Resources.resources
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.csproj.GenerateResource.cache
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.csproj.CoreCompileInputs.cache
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.exe
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.pdb
