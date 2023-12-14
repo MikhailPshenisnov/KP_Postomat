@@ -35,3 +35,5 @@ D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\bin\Debug\Sys
 D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.csproj.CopyComplete
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\DeliveryPage.g.cs
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\DeliveryPage.baml

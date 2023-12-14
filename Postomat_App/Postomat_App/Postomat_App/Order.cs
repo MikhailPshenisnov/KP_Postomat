@@ -1,4 +1,6 @@
-﻿namespace Postomat_App
+﻿using System;
+
+namespace Postomat_App
 {
     public class Order
     {
@@ -9,6 +11,7 @@
 
         public Order(int identifier, int size = 1, string description = "No description")
         {
+            if (identifier < 0) throw new Exception("Less than zero");
             Identifier = identifier;
 
             if (size < 0)

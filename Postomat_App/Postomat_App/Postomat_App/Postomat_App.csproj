@@ -83,6 +83,10 @@
         <Compile Include="Cell.cs" />
         <Compile Include="CSVTools.cs" />
         <Compile Include="Customer.cs" />
+        <Compile Include="Delivery.cs" />
+        <Compile Include="DeliveryPage.xaml.cs">
+          <DependentUpon>DeliveryPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Order.cs" />
         <Compile Include="Postomat.cs" />
         <Compile Include="ReceiveOrderPage.xaml.cs">
@@ -91,6 +95,7 @@
         <Compile Include="StartPage.xaml.cs">
           <DependentUpon>StartPage.xaml</DependentUpon>
         </Compile>
+        <Page Include="DeliveryPage.xaml" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>

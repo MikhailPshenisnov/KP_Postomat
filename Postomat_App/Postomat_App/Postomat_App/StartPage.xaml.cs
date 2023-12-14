@@ -20,7 +20,7 @@ namespace Postomat_App
 
         private void DeliveryBtn_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("DeliveryBtn_Click");
+            ProgramWindow.OpenDeliveryPage();
         }
 
         private void AdminBtn_Click(object sender, RoutedEventArgs e)

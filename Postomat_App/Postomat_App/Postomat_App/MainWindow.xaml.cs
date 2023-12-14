@@ -10,6 +10,8 @@ namespace Postomat_App
         private StartPage _startPage = new StartPage();
 
         private ReceiveOrderPage _receiveOrderPage = new ReceiveOrderPage();
+
+        private DeliveryPage _deliveryPage = new DeliveryPage();
         public void OpenStartPage()
         {
             MainWindowFrame.Content = _startPage;
@@ -20,13 +22,22 @@ namespace Postomat_App
             MainWindowFrame.Content = _receiveOrderPage;
             _receiveOrderPage.OrderNumberTextBox.Text = "Enter your code...";
         }
+
+        public void OpenDeliveryPage()
+        {
+            MainWindowFrame.Content = _deliveryPage;
+            _deliveryPage.IdentidierTextBox.Text = "Id...";
+            _deliveryPage.SizeTextBox.Text = "Size...";
+            _deliveryPage.DescriptionTextBox.Text = "Description...";
+        }
+        
         public MainWindow()
         {
             InitializeComponent();
             Postomat.ReadCellsFromCsv();
-            var tmp_check = Postomat.PostomatCells;
             _startPage.ProgramWindow = this;
             _receiveOrderPage.ProgramWindow = this;
+            _deliveryPage.ProgramWindow = this;
             
             OpenStartPage();
             

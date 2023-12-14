@@ -87,5 +87,17 @@ namespace Postomat_App
             }
             WriteCellsToCSV();
         }
+
+        public static void AddOrderToCell(int cellIdentifier, Order order)
+        {
+            foreach (var cell in PostomatCells)
+            {
+                if (cell.Identifier == cellIdentifier)
+                {
+                    cell.Content = order;
+                }
+            }
+            WriteCellsToCSV();
+        }
     }
 }
