@@ -2,16 +2,15 @@
 
 namespace Postomat_App
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow
     {
-        private StartPage _startPage = new StartPage();
+        private StartPage _startPage = new StartPage(); // Стартовая страница
 
-        private ReceiveOrderPage _receiveOrderPage = new ReceiveOrderPage();
+        private ReceiveOrderPage _receiveOrderPage = new ReceiveOrderPage(); // Страница получения заказа
 
-        private DeliveryPage _deliveryPage = new DeliveryPage();
+        private DeliveryPage _deliveryPage = new DeliveryPage(); // Страница доставки
+        
+        // Функции которые переключают окна и задают базовый текст для некоторых окон
         public void OpenStartPage()
         {
             MainWindowFrame.Content = _startPage;
@@ -31,6 +30,7 @@ namespace Postomat_App
             _deliveryPage.DescriptionTextBox.Text = "Description...";
         }
         
+        // Инициализация окна
         public MainWindow()
         {
             InitializeComponent();

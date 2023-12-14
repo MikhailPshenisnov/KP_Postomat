@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Postomat_App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!-- Стиль для кнопки -->
         <Style x:Key="RoundButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Firebrick" />
             <Setter Property="Foreground" Value="White" />

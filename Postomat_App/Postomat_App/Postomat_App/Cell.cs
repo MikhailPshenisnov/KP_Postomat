@@ -1,13 +1,20 @@
 ﻿namespace Postomat_App
 {
+    // Класс для ячейки постамата
     public class Cell
     {
-        private static int _counter = 0;
+        private static int _counter = 0; // Статический счетчик для ID
 
-        public int Identifier { get; private set; }
-        public int Size { get; private set; }
+        public int Identifier { get; private set; } // ID ячейки
+        public int Size { get; private set; } // Размер ячейки
         
-        public Order? Content { get; set; }
+        /*  Существует 3 размера ячейки маленький (0), средний (1) и крупный (2)
+            По умолчанию создается средняя ячейка
+            для икслючения ошибок значения меньше 1 приравниваются к маленьким ячейкам,
+            а больше 2 к крупным.
+         */
+        
+        public Order? Content { get; set; } // То что лежит в ячейке, может быть null
 
         public Cell(int size = 1)
         {

@@ -4,6 +4,7 @@ using System.Windows.Controls;
 
 namespace Postomat_App
 {
+    // Страница получения заказа
     public partial class ReceiveOrderPage : Page
     {
         public MainWindow ProgramWindow { get; set; }
@@ -13,6 +14,7 @@ namespace Postomat_App
             InitializeComponent();
         }
 
+        // Обработка нажатия на кнопку получения заказа
         private void ReceiveOrderByNumberBtn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -29,6 +31,7 @@ namespace Postomat_App
             OrderNumberTextBox.Text = "Enter your code...";
         }
 
+        // Кнопка "назад к главному меню"
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             ProgramWindow.OpenStartPage();

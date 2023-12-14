@@ -2,6 +2,7 @@
 
 namespace Postomat_App
 {
+    // Класс для объекта заказа, объект имеет отличительный номер, размер необходимой ячейки и описание
     public class Order
     {
         public int Identifier { get; private set; }
@@ -28,6 +29,7 @@ namespace Postomat_App
             Description = description;
         }
         
+        // Для записи в файл с ячейками часто нужна такая запись заказа и так можно представить его в виде строки
         public string GetOrderString()
         {
             return $"{Identifier},{Size},{Description}";

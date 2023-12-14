@@ -8,6 +8,7 @@
         Title="Nozo postomat" Height="420" Width="700" MinHeight="420" MinWidth="700" MaxHeight="1080" MaxWidth="1920"
         Background="LightSlateGray">
     <Grid>
+        <!-- Фрейм для отображения страниц -->
         <Frame x:Name="MainWindowFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

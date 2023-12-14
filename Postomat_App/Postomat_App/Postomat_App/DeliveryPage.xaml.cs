@@ -12,6 +12,8 @@ public partial class DeliveryPage : Page
         InitializeComponent();
     }
 
+    // Обработка нажатия на кнопку получения заказа с обработкой данных введенных пользователем
+    // Прописан обработчик ошибок
     private void ReceiveOrderByNumberBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -37,6 +39,7 @@ public partial class DeliveryPage : Page
         }
     }
 
+    // Возврат в главное меню
     private void BackBtn_Click(object sender, RoutedEventArgs e)
     {
         ProgramWindow.OpenStartPage();
