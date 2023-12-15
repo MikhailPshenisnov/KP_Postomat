@@ -80,12 +80,18 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="AdminPanelPage.xaml.cs">
+          <DependentUpon>AdminPanelPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Cell.cs" />
         <Compile Include="CSVTools.cs" />
         <Compile Include="Customer.cs" />
         <Compile Include="Delivery.cs" />
         <Compile Include="DeliveryPage.xaml.cs">
           <DependentUpon>DeliveryPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="LoginAdminPanelPage.xaml.cs">
+          <DependentUpon>LoginAdminPanelPage.xaml</DependentUpon>
         </Compile>
         <Compile Include="Order.cs" />
         <Compile Include="Postomat.cs" />
@@ -95,7 +101,9 @@
         <Compile Include="StartPage.xaml.cs">
           <DependentUpon>StartPage.xaml</DependentUpon>
         </Compile>
+        <Page Include="AdminPanelPage.xaml" />
         <Page Include="DeliveryPage.xaml" />
+        <Page Include="LoginAdminPanelPage.xaml" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>

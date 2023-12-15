@@ -59,6 +59,21 @@ namespace Postomat_App
         public static void AddCell(int cellSize)
         {
             PostomatCells.Add(new Cell(cellSize));
+            WriteCellsToCSV();
+        }
+
+        public static void DeleteCell(int cellIdentifier)
+        {
+            for (var i = 0; i < PostomatCells.Count; i++)
+            {
+                if (PostomatCells[i].Identifier == cellIdentifier)
+                {
+                    PostomatCells.Remove(PostomatCells[i]);
+                    WriteCellsToCSV();
+                    return;
+                }
+            }
+            throw new Exception("Wrong Index!");
         }
 
         // Перебирает ячейки и ищет ячейку с нужным заказом
@@ -101,6 +116,12 @@ namespace Postomat_App
                 }
             }
             WriteCellsToCSV();
+        }
+        
+        // Проверка пароля администратора
+        public static bool CheckAdminPassword(string password)
+        {
+            return password == _adminPassword;
         }
     }
 }

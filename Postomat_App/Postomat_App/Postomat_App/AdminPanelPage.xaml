@@ -1,0 +1,78 @@
+﻿<Page x:Class="Postomat_App.AdminPanelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Postomat_App"
+      mc:Ignorable="d"
+      Title="ApminPanelPage" Height="420" Width="700" MinHeight="420" MinWidth="700" MaxHeight="1080" MaxWidth="1920">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <ListBox Name="DataListBox"></ListBox>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Button Name="UpdateBtn" Content="Updade" Click="UpdateBtn_Click"></Button>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBox Name="IdentifierTextBox" Grid.Column="0" Text="Id...">
+            </TextBox>
+            <TextBox Name="SizeTextBox" Grid.Column="1" Text="Size...">
+            </TextBox>
+            <TextBox Name="DescriptionTextBox" Grid.Column="2" Text="Description...">
+            </TextBox>
+            <Button Grid.Column="3" Name="FillBtn" Content="Fill" Click="FillBtn_Click"></Button>
+        </Grid>
+        
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBox Name="OrderIdTextBox" Grid.Column="0" Text="Id...">
+            </TextBox>
+            <Button Name="ClearBtn" Content="Clear" Click="ClearBtn_Click" Grid.Column="1"></Button>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBox Name="CellSizeTextBox" Grid.Column="0" Text="Size..."></TextBox>
+            <Button Name="CreateBtn" Content="Create" Click="CreateBtn_Click" Grid.Column="1"></Button>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBox Name="CellIdTextBox" Grid.Column="0" Text="Id..."></TextBox>
+            <Button Name="DeleteBtn" Content="Delete" Click="DeleteBtn_Click" Grid.Column="1"></Button>
+        </Grid>
+        
+        <Grid Grid.Row="6">
+            <Button Name="BackBtn" Content="Back" Click="BackBtn_Click"></Button>
+        </Grid>
+    </Grid>
+</Page>

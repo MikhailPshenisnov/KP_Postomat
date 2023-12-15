@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
 
@@ -33,6 +34,28 @@ namespace Postomat_App
                 }
 
                 return result;
+            }
+        }
+
+        public static List<string> ReadBareData(string filename)
+        {
+            List<string> result = new List<string>();
+            string line;
+            try
+            {
+                StreamReader sr = new StreamReader(filename);
+                line = sr.ReadLine();
+                while (line != null)
+                {
+                    result.Add(line);
+                    line = sr.ReadLine();
+                }
+                sr.Close();
+                return result;
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Something went wrong!");
             }
         }
 

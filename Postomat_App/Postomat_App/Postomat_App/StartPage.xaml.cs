@@ -29,7 +29,7 @@ namespace Postomat_App
         // Переход ко входу в панель администратора
         private void AdminBtn_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("AdminBtn_Click");
+            ProgramWindow.OpenLoginAdminPanelPage();
         }
     }
 }

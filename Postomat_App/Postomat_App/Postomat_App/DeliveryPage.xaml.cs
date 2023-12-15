@@ -37,6 +37,9 @@ public partial class DeliveryPage : Page
             MessageBox.Show("Incorrect input data or there are no free suitable cells!", "Error", 
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
+        IdentidierTextBox.Text = "Id...";
+        SizeTextBox.Text = "Size...";
+        DescriptionTextBox.Text = "Description...";
     }
 
     // Возврат в главное меню

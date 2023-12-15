@@ -9,6 +9,10 @@ namespace Postomat_App
         private ReceiveOrderPage _receiveOrderPage = new ReceiveOrderPage(); // Страница получения заказа
 
         private DeliveryPage _deliveryPage = new DeliveryPage(); // Страница доставки
+
+        private LoginAdminPanelPage _loginAdminPanelPage = new LoginAdminPanelPage();
+
+        private AdminPanelPage _adminPanelPage = new AdminPanelPage();
         
         // Функции которые переключают окна и задают базовый текст для некоторых окон
         public void OpenStartPage()
@@ -30,14 +34,39 @@ namespace Postomat_App
             _deliveryPage.DescriptionTextBox.Text = "Description...";
         }
         
+        public void OpenLoginAdminPanelPage()
+        {
+            MainWindowFrame.Content = _loginAdminPanelPage;
+            _loginAdminPanelPage.PasswordTextBox.Text = "Password...";
+            
+        }
+
+        public void OpenAdminPanelPage()
+        {
+            MainWindowFrame.Content = _adminPanelPage;
+            
+            _adminPanelPage.UpdateBtn_Click(new object(), new RoutedEventArgs());
+            
+            _adminPanelPage.IdentifierTextBox.Text = "Id...";
+            _adminPanelPage.SizeTextBox.Text = "Size...";
+            _adminPanelPage.DescriptionTextBox.Text = "Description...";
+            _adminPanelPage.OrderIdTextBox.Text = "Id...";
+            _adminPanelPage.CellSizeTextBox.Text = "Size...";
+            _adminPanelPage.CellIdTextBox.Text = "Id...";
+            
+        }
+        
         // Инициализация окна
         public MainWindow()
         {
             InitializeComponent();
             Postomat.ReadCellsFromCsv();
+            
             _startPage.ProgramWindow = this;
             _receiveOrderPage.ProgramWindow = this;
             _deliveryPage.ProgramWindow = this;
+            _loginAdminPanelPage.ProgramWindow = this;
+            _adminPanelPage.ProgramWindow = this;
             
             OpenStartPage();
             

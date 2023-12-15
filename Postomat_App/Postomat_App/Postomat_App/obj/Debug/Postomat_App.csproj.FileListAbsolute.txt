@@ -37,3 +37,7 @@ D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\bin\Debug\Sys
 D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\Postomat_App.csproj.CopyComplete
 D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\DeliveryPage.g.cs
 D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\DeliveryPage.baml
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\LoginAdminPanelPage.g.cs
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\LoginAdminPanelPage.baml
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\AdminPanelPage.g.cs
+D:\RiderPojects\KP_Postomat\Postomat_App\Postomat_App\Postomat_App\obj\Debug\AdminPanelPage.baml
