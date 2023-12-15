@@ -37,6 +37,7 @@ namespace Postomat_App
             }
         }
 
+        // Вывод неформатированныз данных из csv файла
         public static List<string> ReadBareData(string filename)
         {
             List<string> result = new List<string>();

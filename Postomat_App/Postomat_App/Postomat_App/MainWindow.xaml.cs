@@ -60,15 +60,16 @@ namespace Postomat_App
         public MainWindow()
         {
             InitializeComponent();
-            Postomat.ReadCellsFromCsv();
+            Postomat.ReadCellsFromCsv(); // Подгрузка данных из файла
             
+            // Передача объекта окна страницам для корректного взаимодействия
             _startPage.ProgramWindow = this;
             _receiveOrderPage.ProgramWindow = this;
             _deliveryPage.ProgramWindow = this;
             _loginAdminPanelPage.ProgramWindow = this;
             _adminPanelPage.ProgramWindow = this;
             
-            OpenStartPage();
+            OpenStartPage(); // Открытие стартового окна
             
         }
     }

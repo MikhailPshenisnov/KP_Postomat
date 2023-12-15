@@ -56,12 +56,14 @@ namespace Postomat_App
             CSVTools.WriteToCSV(data);
         }
 
+        // Добавление ячейки с соответствующим размером
         public static void AddCell(int cellSize)
         {
             PostomatCells.Add(new Cell(cellSize));
             WriteCellsToCSV();
         }
 
+        // Удаление ячейки по идентификатору ячейки
         public static void DeleteCell(int cellIdentifier)
         {
             for (var i = 0; i < PostomatCells.Count; i++)

@@ -4,6 +4,7 @@ using System.Windows.Controls;
 
 namespace Postomat_App;
 
+// Класс для окна входа в режим администратора
 public partial class LoginAdminPanelPage : Page
 {
     public MainWindow ProgramWindow { get; set; }
@@ -13,6 +14,7 @@ public partial class LoginAdminPanelPage : Page
         InitializeComponent();
     }
 
+    // Проверка пароля
     private void LoginBtn_OnClick(object sender, RoutedEventArgs e)
     {
         try
@@ -33,6 +35,7 @@ public partial class LoginAdminPanelPage : Page
         PasswordTextBox.Text = "Password...";
     }
 
+    // Возврат наглавную
     private void BackBtn_Click(object sender, RoutedEventArgs e)
     {
         ProgramWindow.OpenStartPage();

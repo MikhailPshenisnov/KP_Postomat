@@ -6,6 +6,7 @@ using System.Windows.Documents;
 
 namespace Postomat_App;
 
+// Класс для панели администратора
 public partial class AdminPanelPage : Page
 {
     public MainWindow ProgramWindow { get; set; }
@@ -15,6 +16,7 @@ public partial class AdminPanelPage : Page
         InitializeComponent();
     }
 
+    // Кнопка обновления отображения таблицы
     public void UpdateBtn_Click(object sender, RoutedEventArgs e)
     {
         DataListBox.Items.Clear();
@@ -25,6 +27,7 @@ public partial class AdminPanelPage : Page
         }
     }
 
+    // Добавление в ячейку заказа (заполнение), аналог доставки у курьера
     private void FillBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -51,12 +54,9 @@ public partial class AdminPanelPage : Page
         IdentifierTextBox.Text = "Id...";
         SizeTextBox.Text = "Size...";
         DescriptionTextBox.Text = "Description...";
-        
-        
-        // _adminPanelPage.CellSizeTextBox.Text = "Size...";
-        // _adminPanelPage.CellIdTextBox.Text = "Id...";
     }
 
+    // Удаление из ячейки заказа (очистка), аналог получения заказа у посетителя
     private void ClearBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -73,6 +73,7 @@ public partial class AdminPanelPage : Page
         OrderIdTextBox.Text = "Id...";
     }
 
+    // Создание пустой ячейки с заданным размером
     private void CreateBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -89,6 +90,7 @@ public partial class AdminPanelPage : Page
         CellSizeTextBox.Text = "Size...";
     }
 
+    // Удаление ячейки по id ячейки
     private void DeleteBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -105,22 +107,9 @@ public partial class AdminPanelPage : Page
         CellIdTextBox.Text = "Id...";
     }
 
+    // Возврат на главный экран
     private void BackBtn_Click(object sender, RoutedEventArgs e)
     {
         ProgramWindow.OpenStartPage();
-    }
-    
-    private class DataExample
-    {
-        public int id;
-        public int size;
-        public string? order;
-
-        public DataExample(int id, int size, string? order)
-        {
-            this.id = id;
-            this.size = size;
-            this.order = order;
-        }
     }
 }
