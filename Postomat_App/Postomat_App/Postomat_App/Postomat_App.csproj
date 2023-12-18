@@ -86,6 +86,7 @@
         <Compile Include="Cell.cs" />
         <Compile Include="CSVTools.cs" />
         <Compile Include="Customer.cs" />
+        <Compile Include="CustomСontainer.cs" />
         <Compile Include="Delivery.cs" />
         <Compile Include="DeliveryPage.xaml.cs">
           <DependentUpon>DeliveryPage.xaml</DependentUpon>

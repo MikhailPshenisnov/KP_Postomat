@@ -18,14 +18,13 @@ public partial class DeliveryPage : Page
     {
         try
         {
-            int identifier = int.Parse(IdentidierTextBox.Text);
-            int size = int.Parse(SizeTextBox.Text);
-            string description = DescriptionTextBox.Text;
-
-            Order newOrder;
+            var identifier = int.Parse(IdentidierTextBox.Text);
+            var size = int.Parse(SizeTextBox.Text);
+            var description = DescriptionTextBox.Text;
 
             if (description == "Description...") description = "";
-            newOrder = description == "" ? new Order(identifier, size) : new Order(identifier, size, description);
+            
+            var newOrder = description == "" ? new Order(identifier, size) : new Order(identifier, size, description);
             
             Delivery.AddOrderToCell(newOrder);
             

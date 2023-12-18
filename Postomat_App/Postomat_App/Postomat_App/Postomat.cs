@@ -10,8 +10,8 @@ namespace Postomat_App
     public static class Postomat
     {
         // Пароль для доступа к консоли администратора
-        private static string _adminPassword = "SuperUser19738";
-        
+        private const string AdminPassword = "SuperUser19738";
+
         // Хранилище ячеек
         public static List<Cell> PostomatCells { get; set; } = new List<Cell>();
 
@@ -123,7 +123,7 @@ namespace Postomat_App
         // Проверка пароля администратора
         public static bool CheckAdminPassword(string password)
         {
-            return password == _adminPassword;
+            return password == AdminPassword;
         }
     }
 }
