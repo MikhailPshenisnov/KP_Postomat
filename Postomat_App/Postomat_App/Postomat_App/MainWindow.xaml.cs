@@ -4,16 +4,16 @@ namespace Postomat_App
 {
     public partial class MainWindow
     {
-        private readonly StartPage _startPage = new StartPage(); // Стартовая страница
+        private readonly StartPage _startPage = new(); // Стартовая страница
 
-        private readonly ReceiveOrderPage _receiveOrderPage = new ReceiveOrderPage(); // Страница получения заказа
+        private readonly ReceiveOrderPage _receiveOrderPage = new(); // Страница получения заказа
 
-        private readonly DeliveryPage _deliveryPage = new DeliveryPage(); // Страница доставки
+        private readonly DeliveryPage _deliveryPage = new(); // Страница доставки
 
         private readonly LoginAdminPanelPage
-            _loginAdminPanelPage = new LoginAdminPanelPage(); // Страница авторизации администратора
+            _loginAdminPanelPage = new(); // Страница авторизации администратора
 
-        private readonly AdminPanelPage _adminPanelPage = new AdminPanelPage(); // Страница администратора
+        private readonly AdminPanelPage _adminPanelPage = new(); // Страница администратора
 
         // Функции которые переключают окна и задают базовый текст для некоторых окон
         public void OpenStartPage()

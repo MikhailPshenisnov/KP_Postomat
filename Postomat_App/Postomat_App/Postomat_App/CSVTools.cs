@@ -7,14 +7,14 @@ namespace Postomat_App
 {
     // Статический класс для работы с хранилищем данных в виде csv файла,
     // используется как библиотека для работы с файлом
-    public static class CSVTools
+    public static class CsvTools
     {
         // Функция считывает данные из файла и создает список с данными
-        public static List<List<string>> ReadFromCSV(string filename)
+        public static List<List<string>> ReadFromCsv(string filename)
         {
             var result = new List<List<string>>();
 
-            using (var textFieldParser = new TextFieldParser("PostomatCells.csv"))
+            using (var textFieldParser = new TextFieldParser(filename))
             {
                 textFieldParser.TextFieldType = FieldType.Delimited;
                 textFieldParser.SetDelimiters(";");
@@ -24,10 +24,11 @@ namespace Postomat_App
                 while (!textFieldParser.EndOfData)
                 {
                     string[] fields = textFieldParser.ReadFields();
-                    foreach (var i in fields)
-                    {
-                        tmp.Add(i);
-                    }
+                    if (fields != null)
+                        foreach (var i in fields)
+                        {
+                            tmp.Add(i);
+                        }
 
                     result.Add(tmp);
                     tmp = new List<string>();
@@ -40,12 +41,11 @@ namespace Postomat_App
         // Вывод неформатированныз данных из csv файла
         public static List<string> ReadBareData(string filename)
         {
-            List<string> result = new List<string>();
-            string line;
+            var result = new List<string>();
             try
             {
-                StreamReader sr = new StreamReader(filename);
-                line = sr.ReadLine();
+                var sr = new StreamReader(filename);
+                var line = sr.ReadLine();
                 while (line != null)
                 {
                     result.Add(line);
@@ -54,14 +54,14 @@ namespace Postomat_App
                 sr.Close();
                 return result;
             }
-            catch(Exception e)
+            catch(Exception exception)
             {
-                throw new Exception("Something went wrong!");
+                throw new Exception($"Something went wrong! {exception.Message}");
             }
         }
 
         // Функция для записи отформатированных данных в csv файл
-        public static void WriteToCSV(List<List<string>> data)
+        public static void WriteToCsv(List<List<string>> data)
         {
             var sw = new StreamWriter("PostomatCells.csv");
             

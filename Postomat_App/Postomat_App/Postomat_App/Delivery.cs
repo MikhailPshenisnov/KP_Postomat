@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Postomat_App;
+﻿namespace Postomat_App;
 
 // Класс используемый как библиотека для функционала курьера
 public static class Delivery
@@ -9,14 +7,7 @@ public static class Delivery
     // (Имитирует доставку заказа в постомат)
     public static void AddOrderToCell(Order order)
     {
-        foreach (var cell in Postomat.PostomatCells)
-        {
-            if (cell.Content is null && cell.Size >= order.Size)
-            {
-                Postomat.AddOrderToCell(cell.Identifier, order);
-                return;
-            }
-        }
-        throw new Exception("There are no free suitable cells!");
+        var identifier = Postomat.FindSuitableCell(order);
+        Postomat.AddOrderToCell(identifier, order);
     }
 }

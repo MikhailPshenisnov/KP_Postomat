@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace Postomat_App;
 
@@ -20,7 +18,7 @@ public partial class AdminPanelPage : Page
     public void UpdateBtn_Click(object sender, RoutedEventArgs e)
     {
         DataListBox.Items.Clear();
-        var data = CSVTools.ReadBareData("PostomatCells.csv");
+        var data = CsvTools.ReadBareData("PostomatCells.csv");
         foreach (var d in data)
         {
             DataListBox.Items.Add(d);
@@ -42,7 +40,8 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect input data or there are no free suitable cells!", "Error",
+            MessageBox.Show($"Incorrect input data or there are no free suitable cells!\n" +
+                            $"{exception.Message}", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -62,7 +61,8 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect order number!", "Error",
+            MessageBox.Show("Incorrect order number!\n" +
+                            $"{exception.Message}", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -80,7 +80,8 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect cell size!", "Error",
+            MessageBox.Show("Incorrect cell size!\n" +
+                            $"{exception.Message}", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -98,7 +99,8 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect cell id!", "Error",
+            MessageBox.Show("Incorrect cell id!\n" +
+                            $"{exception.Message}", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 

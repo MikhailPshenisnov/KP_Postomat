@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
 
 namespace Postomat_App;
 
 public class CustomСontainer<T> where T: Cell
 {
-    public List<T> Container { get; set; } = new List<T>();
+    private List<T> Container { get; set; } = new();
 
     public void ClearCells()
     {
@@ -71,5 +70,36 @@ public class CustomСontainer<T> where T: Cell
                 cell.Content = null;
             }
         }
+    }
+
+    public List<List<string>> GetDataForCsv()
+    {
+        var data = new List<List<string>>();
+
+        foreach (var cell in Container)
+        {
+            var orderString = cell.Content is null ? "" : cell.Content.GetOrderString();
+            data.Add(new List<string>
+            { 
+                cell.Identifier.ToString(), 
+                cell.Size.ToString(), 
+                orderString
+            });
+        }
+
+        return data;
+    }
+
+    public int FindSuitableCell(Order order)
+    {
+        foreach (var cell in Container)
+        {
+            if (cell.Content is null && cell.Size >= order.Size)
+            {
+                return cell.Identifier;
+            }
+        }
+
+        throw new Exception("There is no any suitable cell!");
     }
 }

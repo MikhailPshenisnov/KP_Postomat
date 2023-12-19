@@ -3,7 +3,7 @@
     // Класс для ячейки постамата
     public class Cell
     {
-        private static int _counter = 0; // Статический счетчик для ID
+        private static int _counter; // Статический счетчик для ID
 
         public int Identifier { get; private set; } // ID ячейки
         public int Size { get; private set; } // Размер ячейки

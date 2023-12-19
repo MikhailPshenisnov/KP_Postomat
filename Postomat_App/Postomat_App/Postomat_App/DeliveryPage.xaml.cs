@@ -33,7 +33,8 @@ public partial class DeliveryPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect input data or there are no free suitable cells!", "Error", 
+            MessageBox.Show("Incorrect input data or there are no free suitable cells!\n" +
+                            $"{exception.Message}", "Error", 
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
         IdentidierTextBox.Text = "Id...";

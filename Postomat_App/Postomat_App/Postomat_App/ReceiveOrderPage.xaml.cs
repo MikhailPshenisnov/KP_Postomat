@@ -25,7 +25,8 @@ namespace Postomat_App
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Incorrect order number!", "Error", 
+                MessageBox.Show("Incorrect order number!\n" +
+                                $"{exception.Message}", "Error", 
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
             OrderNumberTextBox.Text = "Enter your code...";

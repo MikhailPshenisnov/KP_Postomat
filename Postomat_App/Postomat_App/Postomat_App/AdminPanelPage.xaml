@@ -33,11 +33,11 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             
-            <TextBox Name="IdentifierTextBox" Grid.Column="0" Text="Id...">
+            <TextBox Name="IdentifierTextBox" Grid.Column="0" Text="Id..." MaxLength="8">
             </TextBox>
-            <TextBox Name="SizeTextBox" Grid.Column="1" Text="Size...">
+            <TextBox Name="SizeTextBox" Grid.Column="1" Text="Size..." MaxLength="1">
             </TextBox>
-            <TextBox Name="DescriptionTextBox" Grid.Column="2" Text="Description...">
+            <TextBox Name="DescriptionTextBox" Grid.Column="2" Text="Description..." MaxLength="512">
             </TextBox>
             <Button Grid.Column="3" Name="FillBtn" Content="Fill" Click="FillBtn_Click"></Button>
         </Grid>
@@ -48,7 +48,7 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             
-            <TextBox Name="OrderIdTextBox" Grid.Column="0" Text="Id...">
+            <TextBox Name="OrderIdTextBox" Grid.Column="0" Text="Id..." MaxLength="8">
             </TextBox>
             <Button Name="ClearBtn" Content="Clear" Click="ClearBtn_Click" Grid.Column="1"></Button>
         </Grid>
@@ -58,7 +58,7 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             
-            <TextBox Name="CellSizeTextBox" Grid.Column="0" Text="Size..."></TextBox>
+            <TextBox Name="CellSizeTextBox" Grid.Column="0" Text="Size..." MaxLength="2"></TextBox>
             <Button Name="CreateBtn" Content="Create" Click="CreateBtn_Click" Grid.Column="1"></Button>
         </Grid>
         <Grid Grid.Row="5">

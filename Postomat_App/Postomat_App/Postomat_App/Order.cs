@@ -5,10 +5,10 @@ namespace Postomat_App
     // Класс для объекта заказа, объект имеет отличительный номер, размер необходимой ячейки и описание
     public class Order
     {
-        public int Identifier { get; private set; }
-        public int Size { get; private set; }
+        public int Identifier { get; }
+        public int Size { get; }
 
-        public string Description { get; set; }
+        private string Description { get; }
 
         public Order(int identifier, int size = 1, string description = "No description")
         {
