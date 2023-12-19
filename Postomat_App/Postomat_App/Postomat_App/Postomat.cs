@@ -1,87 +1,86 @@
-﻿namespace Postomat_App
+﻿namespace Postomat_App;
+
+// Класс для объекта постомата, с помощью этих функций производятся основные операции над данными в постамате
+public static class Postomat
 {
-    // Класс для объекта постомата, с помощью этих функций производятся основные операции над данными в постамате
-    public static class Postomat
+    // Пароль для доступа к консоли администратора
+    private const string AdminPassword = "SuperUser19738";
+
+    // Хранилище ячеек
+    private static CustomСontainer<Cell> PostomatCells { get; } = new();
+
+    // Обновление данных постомата из CSV файла
+    public static void ReadCellsFromCsv()
     {
-        // Пароль для доступа к консоли администратора
-        private const string AdminPassword = "SuperUser19738";
+        var data = CsvTools.ReadFromCsv("PostomatCells.csv");
+        PostomatCells.ClearCells();
 
-        // Хранилище ячеек
-        private static CustomСontainer<Cell> PostomatCells { get; } = new();
-
-        // Обновление данных постомата из CSV файла
-        public static void ReadCellsFromCsv()
+        for (var i = 1; i < data.Count; i++)
         {
-            var data = CsvTools.ReadFromCsv("PostomatCells.csv");
-            PostomatCells.ClearCells();
-
-            for (var i = 1; i < data.Count; i++)
-            {
-                PostomatCells.AddCell(new Cell(int.Parse(data[i][1])));
+            PostomatCells.AddCell(new Cell(int.Parse(data[i][1])));
                 
-                // Проверка на пустоту ячейки и обработка null
-                if (data[i][2] == "")
-                {
-                    PostomatCells.SetCellContent(i - 1, null);
-                }
-                else
-                {
-                    var orderData = data[i][2].Split(',');
-                    PostomatCells.SetCellContent(i - 1, new Order(int.Parse(orderData[0]), 
-                        int.Parse(orderData[1]), orderData[2]));
-                }
+            // Проверка на пустоту ячейки и обработка null
+            if (data[i][2] == "")
+            {
+                PostomatCells.SetCellContent(i - 1, null);
+            }
+            else
+            {
+                var orderData = data[i][2].Split(',');
+                PostomatCells.SetCellContent(i - 1, new Order(int.Parse(orderData[0]), "ЗАМЕНИ МЕНЯ", 
+                    int.Parse(orderData[1]), orderData[2]));
             }
         }
+    }
 
-        // Запись данных из хранилища постомата в CSV файл / Обновление файла при изменении данных
-        private static void WriteCellsToCsv()
-        {
-            CsvTools.WriteToCsv(PostomatCells.GetDataForCsv());
-        }
+    // Запись данных из хранилища постомата в CSV файл / Обновление файла при изменении данных
+    private static void WriteCellsToCsv()
+    {
+        CsvTools.WriteToCsv(PostomatCells.GetDataForCsv());
+    }
 
-        // Добавление ячейки с соответствующим размером
-        public static void AddCell(int cellSize)
-        {
-            PostomatCells.AddCell(new Cell(cellSize));
-            WriteCellsToCsv();
-        }
+    // Добавление ячейки с соответствующим размером
+    public static void AddCell(int cellSize)
+    {
+        PostomatCells.AddCell(new Cell(cellSize));
+        WriteCellsToCsv();
+    }
 
-        // Удаление ячейки по идентификатору ячейки
-        public static void DeleteCell(int cellIdentifier)
-        {
-            PostomatCells.DeleteCell(cellIdentifier);
-            WriteCellsToCsv();
-        }
+    // Удаление ячейки по идентификатору ячейки
+    public static void DeleteCell(int cellIdentifier)
+    {
+        PostomatCells.DeleteCell(cellIdentifier);
+        WriteCellsToCsv();
+    }
 
-        // Перебирает ячейки и ищет ячейку с нужным заказом
-        public static int FindCellByOrderNumber(int orderNumber)
-        {
-            return PostomatCells.FindCellByOrderNumber(orderNumber);
-        }
+    // Перебирает ячейки и ищет ячейку с нужным заказом
+    public static int FindCellByOrderNumber(int orderNumber)
+    {
+        return PostomatCells.FindCellByOrderNumber(orderNumber);
+    }
 
-        // Очищает ячейку от заказа по индексу
-        public static void ClearCellByIdentifier(int identifier)
-        {
-            PostomatCells.ClearCellByIdentifier(identifier);
-            WriteCellsToCsv();
-        }
+    // Очищает ячейку от заказа по индексу
+    public static void ClearCellByIdentifier(int identifier)
+    {
+        PostomatCells.ClearCellByIdentifier(identifier);
+        WriteCellsToCsv();
+    }
 
-        // Добавляет в ячейку заказ
-        public static void AddOrderToCell(int cellIdentifier, Order order)
-        {
-            PostomatCells.AddOrderToCell(cellIdentifier, order);
-            WriteCellsToCsv();
-        }
+    // Добавляет в ячейку заказ
+    public static void AddOrderToCell(int cellIdentifier, Order order)
+    {
+        PostomatCells.AddOrderToCell(cellIdentifier, order);
+        WriteCellsToCsv();
+    }
         
-        // Проверка пароля администратора
-        public static bool CheckAdminPassword(string password)
-        {
-            return password == AdminPassword;
-        }
+    // Проверка пароля администратора
+    public static bool CheckAdminPassword(string password)
+    {
+        return password == AdminPassword;
+    }
 
-        public static int FindSuitableCell(Order order)
-        {
-            return PostomatCells.FindSuitableCell(order);
-        }
+    public static int FindSuitableCell(Order order)
+    {
+        return PostomatCells.FindSuitableCell(order);
     }
 }

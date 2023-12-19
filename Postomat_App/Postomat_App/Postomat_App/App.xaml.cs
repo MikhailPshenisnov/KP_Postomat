@@ -1,9 +1,8 @@
-﻿namespace Postomat_App
+﻿namespace Postomat_App;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App
-    {
-    }
 }

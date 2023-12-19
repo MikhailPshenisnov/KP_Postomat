@@ -5,7 +5,7 @@ public static class Administrator
     public static void FillCell(int identifier, int size, string description)
     {
         if (description == "Description...") description = "";
-        var newOrder = description == "" ? new Order(identifier, size) : new Order(identifier, size, description);
+        var newOrder = description == "" ? new Order(identifier, "ЗАМЕНИ МЕНЯ", size) : new Order(identifier, "ЗАМЕНИ МЕНЯ", size, description);
             
         Delivery.AddOrderToCell(newOrder);
     }
