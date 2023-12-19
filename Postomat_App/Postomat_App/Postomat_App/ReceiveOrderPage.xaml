@@ -65,7 +65,7 @@
             </Grid.ColumnDefinitions>
             <Button Name="ReceiveOrderByNumberBtn" Click="ReceiveOrderByNumberBtn_Click" Grid.Column="1"
                     Style="{StaticResource RoundButtonStyle}">
-                <TextBlock Text="Delivery panel" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <TextBlock Text="Receive order" HorizontalAlignment="Center" VerticalAlignment="Center"
                            FontFamily="Verdana" FontSize="30" TextWrapping="Wrap" TextAlignment="Center" />
             </Button>
         </Grid>

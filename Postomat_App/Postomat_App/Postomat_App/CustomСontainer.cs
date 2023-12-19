@@ -30,6 +30,22 @@ public class CustomСontainer<T> where T: Cell
         }
         throw new Exception("Wrong Index!");
     }
+
+    public void SetCellContent(int index, Order? order)
+    {
+        Container[index].Content = order;
+    }
+
+    public void AddOrderToCell(int cellIdentifier, Order order)
+    {
+        foreach (var cell in Container)
+        {
+            if (cell.Identifier == cellIdentifier)
+            {
+                cell.Content = order;
+            }
+        }
+    }
     
     public int FindCellByOrderNumber(int orderNumber)
     {
@@ -44,5 +60,16 @@ public class CustomСontainer<T> where T: Cell
             }
         }
         throw new Exception("Wrong order number");
+    }
+    
+    public void ClearCellByIdentifier(int identifier)
+    {
+        foreach (var cell in Container)
+        {
+            if (cell.Identifier == identifier)
+            {
+                cell.Content = null;
+            }
+        }
     }
 }
