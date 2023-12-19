@@ -10,7 +10,7 @@ namespace Postomat_App;
 public partial class AdminPanelPage : Page
 {
     public MainWindow ProgramWindow { get; set; }
-    
+
     public AdminPanelPage()
     {
         InitializeComponent();
@@ -32,25 +32,20 @@ public partial class AdminPanelPage : Page
     {
         try
         {
-            int identifier = int.Parse(IdentifierTextBox.Text);
-            int size = int.Parse(SizeTextBox.Text);
-            string description = DescriptionTextBox.Text;
+            Administrator.FillCell(
+                int.Parse(IdentifierTextBox.Text),
+                int.Parse(SizeTextBox.Text),
+                DescriptionTextBox.Text);
 
-            Order newOrder;
-
-            if (description == "Description...") description = "";
-            newOrder = description == "" ? new Order(identifier, size) : new Order(identifier, size, description);
-            
-            Delivery.AddOrderToCell(newOrder);
-            
-            MessageBox.Show($"The order was successfully delivered!", "Success", 
+            MessageBox.Show($"The order was successfully delivered!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect input data or there are no free suitable cells!", "Error", 
+            MessageBox.Show("Incorrect input data or there are no free suitable cells!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
         IdentifierTextBox.Text = "Id...";
         SizeTextBox.Text = "Size...";
         DescriptionTextBox.Text = "Description...";
@@ -61,15 +56,16 @@ public partial class AdminPanelPage : Page
     {
         try
         {
-            Customer.ReceiveOrderByNumber(int.Parse(OrderIdTextBox.Text));
-            MessageBox.Show($"The cell with your order is open, you can pick up your order!", "Success", 
+            Administrator.ClearCell(int.Parse(OrderIdTextBox.Text));
+            MessageBox.Show($"The cell with your order is open, you can pick up your order!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect order number!", "Error", 
+            MessageBox.Show("Incorrect order number!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
         OrderIdTextBox.Text = "Id...";
     }
 
@@ -78,15 +74,16 @@ public partial class AdminPanelPage : Page
     {
         try
         {
-            Postomat.AddCell(int.Parse(CellSizeTextBox.Text));
-            MessageBox.Show($"The cell was created!", "Success", 
+            Administrator.CreateCell(int.Parse(CellSizeTextBox.Text));
+            MessageBox.Show($"The cell was created!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect cell size!", "Error", 
+            MessageBox.Show("Incorrect cell size!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
         CellSizeTextBox.Text = "Size...";
     }
 
@@ -95,15 +92,16 @@ public partial class AdminPanelPage : Page
     {
         try
         {
-            Postomat.DeleteCell(int.Parse(CellIdTextBox.Text));
-            MessageBox.Show($"The cell was deleted!", "Success", 
+            Administrator.DeleteCell(int.Parse(CellIdTextBox.Text));
+            MessageBox.Show($"The cell was deleted!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect cell id!", "Error", 
+            MessageBox.Show("Incorrect cell id!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
         CellIdTextBox.Text = "Id...";
     }
 

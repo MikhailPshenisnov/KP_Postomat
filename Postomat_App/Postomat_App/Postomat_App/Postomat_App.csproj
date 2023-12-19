@@ -80,6 +80,7 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Administrator.cs" />
         <Compile Include="AdminPanelPage.xaml.cs">
           <DependentUpon>AdminPanelPage.xaml</DependentUpon>
         </Compile>
