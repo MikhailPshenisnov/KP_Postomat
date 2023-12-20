@@ -46,11 +46,12 @@
         
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="25" />
                 <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="4*" />
                 <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="6*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="25" />
             </Grid.ColumnDefinitions>
             
             <TextBox Name="IdentidierTextBox" Grid.Column="1" Background="Azure" Text="Id..." 
@@ -58,13 +59,18 @@
                      FontFamily="Verdana" FontSize="30" TextWrapping="NoWrap" TextAlignment="Left"
                      MaxLength="8" FontStyle="Italic">
             </TextBox>
-            <TextBox Name="SizeTextBox" Grid.Column="2" Background="Azure" Text="Size..." 
+            <TextBox Name="ReceiverTextBox" Grid.Column="2" Background="Azure" Text="Receiver..." 
+                     MinHeight="50" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center"
+                     FontFamily="Verdana" FontSize="30" TextWrapping="NoWrap" TextAlignment="Left"
+                     MaxLength="64" FontStyle="Italic">
+            </TextBox>
+            <TextBox Name="SizeTextBox" Grid.Column="3" Background="Azure" Text="Size..." 
                      MinHeight="50" MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center"
                      FontFamily="Verdana" FontSize="30" TextWrapping="NoWrap" TextAlignment="Left"
                      MaxLength="1" FontStyle="Italic">
             </TextBox>
             
-            <TextBox Name="DescriptionTextBox" Grid.Column="3" Background="Azure" Text="Description..." 
+            <TextBox Name="DescriptionTextBox" Grid.Column="4" Background="Azure" Text="Description..." 
                      MinHeight="50" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center"
                      FontFamily="Verdana" FontSize="30" TextWrapping="NoWrap" TextAlignment="Left"
                      MaxLength="512" FontStyle="Italic">

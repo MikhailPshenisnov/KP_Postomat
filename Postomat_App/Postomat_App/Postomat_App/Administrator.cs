@@ -2,10 +2,12 @@
 
 public static class Administrator
 {
-    public static void FillCell(int identifier, int size, string description)
+    public static void FillCell(int identifier, string receiver, int size, string description)
     {
         if (description == "Description...") description = "";
-        var newOrder = description == "" ? new Order(identifier, "ЗАМЕНИ МЕНЯ", size) : new Order(identifier, "ЗАМЕНИ МЕНЯ", size, description);
+        var newOrder = description == "" ? 
+            new Order(identifier, receiver, (SizeEnum)size) : 
+            new Order(identifier, receiver, (SizeEnum)size, description);
             
         Delivery.AddOrderToCell(newOrder);
     }

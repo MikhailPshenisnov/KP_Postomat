@@ -32,6 +32,7 @@ public partial class AdminPanelPage : Page
         {
             Administrator.FillCell(
                 int.Parse(IdentifierTextBox.Text),
+                ReceiverTextBox.Text,
                 int.Parse(SizeTextBox.Text),
                 DescriptionTextBox.Text);
 
@@ -48,6 +49,7 @@ public partial class AdminPanelPage : Page
         IdentifierTextBox.Text = "Id...";
         SizeTextBox.Text = "Size...";
         DescriptionTextBox.Text = "Description...";
+        ReceiverTextBox.Text = "Receiver...";
     }
 
     // Удаление из ячейки заказа (очистка), аналог получения заказа у посетителя

@@ -33,6 +33,7 @@ public partial class MainWindow
         _deliveryPage.IdentidierTextBox.Text = "Id...";
         _deliveryPage.SizeTextBox.Text = "Size...";
         _deliveryPage.DescriptionTextBox.Text = "Description...";
+        _deliveryPage.ReceiverTextBox.Text = "Receiver...";
     }
 
     public void OpenLoginAdminPanelPage()
@@ -50,6 +51,7 @@ public partial class MainWindow
         _adminPanelPage.IdentifierTextBox.Text = "Id...";
         _adminPanelPage.SizeTextBox.Text = "Size...";
         _adminPanelPage.DescriptionTextBox.Text = "Description...";
+        _adminPanelPage.ReceiverTextBox.Text = "Receiver...";
         _adminPanelPage.OrderIdTextBox.Text = "Id...";
         _adminPanelPage.CellSizeTextBox.Text = "Size...";
         _adminPanelPage.CellIdTextBox.Text = "Id...";

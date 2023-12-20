@@ -1,9 +1,9 @@
 ﻿namespace Postomat_App;
 
 // Класс для ячейки постамата
-public class Cell
+public abstract class Cell
 {
-    protected static int _counter; // Статический счетчик для ID
+    protected static int Counter; // Статический счетчик для ID
 
     public int Identifier { get; protected set; } // ID ячейки
     public int Size { get; protected set; } // Размер ячейки
@@ -16,21 +16,13 @@ public class Cell
         
     public Order? Content { get; set; } // То что лежит в ячейке, может быть null
 
-    public Cell(int size = 1)
-    {
-        Identifier = _counter++;
-            
-        if (size < 0)
-        {
-            size = 0;
-        }
-        else if (size > 2)
-        {
-            size = 2;
-        }
+    public abstract void ClearCell();
+    
+    public abstract void SetContent(Order? order, Order? extraOrder = null);
 
-        Size = size;
+    public abstract void AddOrder(Order? order);
 
-        Content = null;
-    }
+    public abstract int GetOccupancyInformation();
+
+    public abstract int GetOrderIdentifier();
 }

@@ -17,7 +17,7 @@ public static class Postomat
 
         for (var i = 1; i < data.Count; i++)
         {
-            PostomatCells.AddCell(new Cell(int.Parse(data[i][1])));
+            PostomatCells.AddCell(new SingleCell(int.Parse(data[i][1])));
                 
             // Проверка на пустоту ячейки и обработка null
             if (data[i][2] == "")
@@ -27,8 +27,17 @@ public static class Postomat
             else
             {
                 var orderData = data[i][2].Split(',');
-                PostomatCells.SetCellContent(i - 1, new Order(int.Parse(orderData[0]), "ЗАМЕНИ МЕНЯ", 
-                    int.Parse(orderData[1]), orderData[2]));
+                PostomatCells.SetCellContent
+                (
+                    i - 1, 
+                    new Order
+                    (
+                        int.Parse(orderData[0]),
+                        orderData[3], 
+                        (SizeEnum)int.Parse(orderData[1]), 
+                        orderData[2]
+                    )
+                );
             }
         }
     }
@@ -42,7 +51,7 @@ public static class Postomat
     // Добавление ячейки с соответствующим размером
     public static void AddCell(int cellSize)
     {
-        PostomatCells.AddCell(new Cell(cellSize));
+        PostomatCells.AddCell(new SingleCell(cellSize));
         WriteCellsToCsv();
     }
 

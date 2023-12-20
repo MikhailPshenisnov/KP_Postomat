@@ -81,8 +81,8 @@ public class CustomСontainer<T> where T: Cell
             var orderString = cell.Content is null ? "" : cell.Content.GetOrderString();
             data.Add(new List<string>
             { 
-                cell.Identifier.ToString(), 
-                cell.Size.ToString(), 
+                cell.Identifier.ToString(),
+                ((int)cell.Size).ToString(), 
                 orderString
             });
         }
@@ -94,7 +94,7 @@ public class CustomСontainer<T> where T: Cell
     {
         foreach (var cell in Container)
         {
-            if (cell.Content is null && cell.Size >= order.Size)
+            if (cell.Content is null && cell.Size >= (int)order.Size)
             {
                 return cell.Identifier;
             }

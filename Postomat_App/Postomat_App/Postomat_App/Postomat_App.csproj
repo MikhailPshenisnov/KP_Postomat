@@ -101,6 +101,7 @@
           <DependentUpon>ReceiveOrderPage.xaml</DependentUpon>
         </Compile>
         <Compile Include="SingleCell.cs" />
+        <Compile Include="SizeEnum.cs" />
         <Compile Include="StartPage.xaml.cs">
           <DependentUpon>StartPage.xaml</DependentUpon>
         </Compile>

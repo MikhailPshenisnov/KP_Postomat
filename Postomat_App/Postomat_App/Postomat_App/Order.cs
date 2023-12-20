@@ -6,28 +6,26 @@ namespace Postomat_App;
 public class Order
 {
     public int Identifier { get; }
-    public int Size { get; }
+    public SizeEnum Size { get; }
     
     public string Receiver { get; set; }
 
     private string Description { get; }
 
-    public Order(int identifier, string receiver, int size = 1, string description = "No description")
+    public Order(int identifier, string receiver, SizeEnum size = SizeEnum.Medium, string description = "No description")
     {
-        if (identifier < 0) throw new Exception("Less than zero");
+        if (identifier < 0) throw new Exception("Less than zero!");
         Identifier = identifier;
 
-        if (size < 0)
+        if (Enum.IsDefined(typeof(SizeEnum), size))
         {
-            size = 0;
+            Size = size;
         }
-        else if (size > 2)
+        else
         {
-            size = 2;
+            throw new Exception("Wrong size!");
         }
-
-        Size = size;
-
+        
         Description = description;
 
         Receiver = receiver;
@@ -36,6 +34,6 @@ public class Order
     // Для записи в файл с ячейками часто нужна такая запись заказа и так можно представить его в виде строки
     public string GetOrderString()
     {
-        return $"{Identifier},{Size},{Description},{Receiver}";
+        return $"{Identifier},{(int)Size},{Description},{Receiver}";
     }
 }

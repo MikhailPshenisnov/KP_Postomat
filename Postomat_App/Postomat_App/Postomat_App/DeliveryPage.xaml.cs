@@ -21,10 +21,13 @@ public partial class DeliveryPage : Page
             var identifier = int.Parse(IdentidierTextBox.Text);
             var size = int.Parse(SizeTextBox.Text);
             var description = DescriptionTextBox.Text;
+            var receiver = ReceiverTextBox.Text;
 
             if (description == "Description...") description = "";
             
-            var newOrder = description == "" ? new Order(identifier, "ЗАМЕНИ МЕНЯ", size) : new Order(identifier, "ЗАМЕНИ МЕНЯ", size, description);
+            var newOrder = description == "" ? 
+                new Order(identifier, receiver, (SizeEnum)size) : 
+                new Order(identifier, receiver, (SizeEnum)size, description);
             
             Delivery.AddOrderToCell(newOrder);
             
@@ -40,6 +43,7 @@ public partial class DeliveryPage : Page
         IdentidierTextBox.Text = "Id...";
         SizeTextBox.Text = "Size...";
         DescriptionTextBox.Text = "Description...";
+        ReceiverTextBox.Text = "Receiver...";
     }
 
     // Возврат в главное меню
