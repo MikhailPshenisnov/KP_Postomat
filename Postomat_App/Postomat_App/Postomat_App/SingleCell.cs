@@ -1,23 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Postomat_App;
 
 public class SingleCell: Cell
 {
-    public SingleCell(int size = 1)
+    public SingleCell(SizeEnum size = SizeEnum.Medium)
     {
+        if (Enum.IsDefined(typeof(SizeEnum), size))
+        {
+            Size = size;
+        }
+        else
+        {
+            throw new Exception("Wrong size!");
+        }
+        
         Identifier = Counter++;
-            
-        if (size < 0)
-        {
-            size = 0;
-        }
-        else if (size > 2)
-        {
-            size = 2;
-        }
-
-        Size = size;
 
         Content = null;
     }
@@ -27,7 +26,7 @@ public class SingleCell: Cell
         SetContent(null);
     }
 
-    public override void SetContent(Order order, Order? extraOrder=null)
+    public override void SetContent(Order? order, Order? extraOrder=null)
     {
         if (extraOrder is not null) throw new Exception("A single cell cannot accept a second order!");
         Content = order;
@@ -43,14 +42,14 @@ public class SingleCell: Cell
         return Content == null ? 0 : 1;
     }
 
-    public override int GetOrderIdentifier()
+    public override List<int?> GetOrderIdentifier()
     {
         if (Convert.ToBoolean(GetOccupancyInformation()))
         {
-            return Content!.Identifier;
+            return new List<int?> {Content!.Identifier, null};
         }
 
-        throw new Exception("There is no any order in the cell!");
+        throw new Exception("Something went wrong in SingleCell.cs!");
 
     }
 }

@@ -52,7 +52,7 @@ public class CustomСontainer<T> where T: Cell
         {
             if (Convert.ToBoolean(cell.GetOccupancyInformation()))
             {
-                if (cell.GetOrderIdentifier() == orderNumber)
+                if (cell.GetOrderIdentifier()[0] == orderNumber)
                 {
                     return cell.Identifier;
                 }

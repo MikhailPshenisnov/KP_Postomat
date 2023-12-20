@@ -17,7 +17,7 @@ public static class Postomat
 
         for (var i = 1; i < data.Count; i++)
         {
-            PostomatCells.AddCell(new SingleCell(int.Parse(data[i][1])));
+            PostomatCells.AddCell(new SingleCell((SizeEnum)int.Parse(data[i][1])));
                 
             // Проверка на пустоту ячейки и обработка null
             if (data[i][2] == "")
@@ -52,7 +52,7 @@ public static class Postomat
     // Добавление ячейки с соответствующим размером
     public static void AddCell(int cellSize)
     {
-        PostomatCells.AddCell(new SingleCell(cellSize));
+        PostomatCells.AddCell(new SingleCell((SizeEnum)cellSize));
         WriteCellsToCsv();
     }
 

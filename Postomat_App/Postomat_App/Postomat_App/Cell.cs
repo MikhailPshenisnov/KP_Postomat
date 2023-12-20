@@ -1,4 +1,6 @@
-﻿namespace Postomat_App;
+﻿using System.Collections.Generic;
+
+namespace Postomat_App;
 
 // Класс для ячейки постамата
 public abstract class Cell
@@ -6,7 +8,7 @@ public abstract class Cell
     protected static int Counter; // Статический счетчик для ID
 
     public int Identifier { get; protected set; } // ID ячейки
-    public int Size { get; protected set; } // Размер ячейки
+    public SizeEnum Size { get; protected set; } // Размер ячейки
         
     /*  Существует 3 размера ячейки маленький (0), средний (1) и крупный (2)
         По умолчанию создается средняя ячейка
@@ -24,5 +26,5 @@ public abstract class Cell
 
     public abstract int GetOccupancyInformation();
 
-    public abstract int GetOrderIdentifier();
+    public abstract List<int?> GetOrderIdentifier();
 }

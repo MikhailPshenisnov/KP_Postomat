@@ -92,6 +92,7 @@
         <Compile Include="DeliveryPage.xaml.cs">
           <DependentUpon>DeliveryPage.xaml</DependentUpon>
         </Compile>
+        <Compile Include="DoubleCell.cs" />
         <Compile Include="LoginAdminPanelPage.xaml.cs">
           <DependentUpon>LoginAdminPanelPage.xaml</DependentUpon>
         </Compile>
