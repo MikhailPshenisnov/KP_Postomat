@@ -4,8 +4,6 @@ namespace Postomat_App;
 
 public class SingleCell: Cell
 {
-    // public Order? Content { get; set; } // То что лежит в ячейке, может быть null
-
     public SingleCell(int size = 1)
     {
         Identifier = Counter++;
@@ -26,7 +24,7 @@ public class SingleCell: Cell
 
     public override void ClearCell()
     {
-        Content = null;
+        SetContent(null);
     }
 
     public override void SetContent(Order order, Order? extraOrder=null)

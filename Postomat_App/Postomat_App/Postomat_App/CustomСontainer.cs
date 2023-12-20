@@ -32,7 +32,7 @@ public class CustomСontainer<T> where T: Cell
 
     public void SetCellContent(int index, Order? order)
     {
-        Container[index].Content = order;
+        Container[index].SetContent(order);
     }
 
     public void AddOrderToCell(int cellIdentifier, Order order)
@@ -41,7 +41,7 @@ public class CustomСontainer<T> where T: Cell
         {
             if (cell.Identifier == cellIdentifier)
             {
-                cell.Content = order;
+                cell.AddOrder(order);
             }
         }
     }
@@ -50,9 +50,9 @@ public class CustomСontainer<T> where T: Cell
     {
         foreach (var cell in Container)
         {
-            if (cell.Content is not null)
+            if (Convert.ToBoolean(cell.GetOccupancyInformation()))
             {
-                if (cell.Content.Identifier == orderNumber)
+                if (cell.GetOrderIdentifier() == orderNumber)
                 {
                     return cell.Identifier;
                 }
@@ -67,7 +67,7 @@ public class CustomСontainer<T> where T: Cell
         {
             if (cell.Identifier == identifier)
             {
-                cell.Content = null;
+                cell.ClearCell();
             }
         }
     }
@@ -78,7 +78,9 @@ public class CustomСontainer<T> where T: Cell
 
         foreach (var cell in Container)
         {
-            var orderString = cell.Content is null ? "" : cell.Content.GetOrderString();
+            var orderString = Convert.ToBoolean(cell.GetOccupancyInformation()) ? 
+                cell.Content!.GetOrderString() : 
+                "";
             data.Add(new List<string>
             { 
                 cell.Identifier.ToString(),
@@ -94,7 +96,7 @@ public class CustomСontainer<T> where T: Cell
     {
         foreach (var cell in Container)
         {
-            if (cell.Content is null && cell.Size >= (int)order.Size)
+            if (!Convert.ToBoolean(cell.GetOccupancyInformation()) && (int)cell.Size >= (int)order.Size)
             {
                 return cell.Identifier;
             }

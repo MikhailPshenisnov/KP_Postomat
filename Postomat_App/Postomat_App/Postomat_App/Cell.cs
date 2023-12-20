@@ -14,7 +14,7 @@ public abstract class Cell
         а больше 2 к крупным.
      */
         
-    public Order? Content { get; set; } // То что лежит в ячейке, может быть null
+    public Order? Content { get; protected set; } // То что лежит в ячейке, может быть null
 
     public abstract void ClearCell();
     
