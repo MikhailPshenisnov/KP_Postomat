@@ -40,6 +40,7 @@ public static class Postomat
                 );
             }
         }
+        WriteCellsToCsv();
     }
 
     // Запись данных из хранилища постомата в CSV файл / Обновление файла при изменении данных
