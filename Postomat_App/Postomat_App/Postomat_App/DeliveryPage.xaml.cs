@@ -38,7 +38,7 @@ public partial class DeliveryPage : Page
             MessageBox.Show($"The order was successfully delivered!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             MessageBox.Show("Incorrect input data or there are no free suitable cells!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);

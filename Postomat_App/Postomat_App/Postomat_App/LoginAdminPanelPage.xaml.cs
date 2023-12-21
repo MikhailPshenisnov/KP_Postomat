@@ -27,7 +27,7 @@ public partial class LoginAdminPanelPage : Page
 
             ProgramWindow.OpenAdminPanelPage();
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             MessageBox.Show("Wrong password!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
