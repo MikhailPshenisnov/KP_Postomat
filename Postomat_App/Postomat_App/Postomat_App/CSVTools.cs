@@ -51,10 +51,11 @@ public static class CsvTools
                 result.Add(line);
                 line = sr.ReadLine();
             }
+
             sr.Close();
             return result;
         }
-        catch(Exception exception)
+        catch (Exception exception)
         {
             throw new Exception($"Something went wrong! {exception.Message}");
         }
@@ -64,13 +65,14 @@ public static class CsvTools
     public static void WriteToCsv(List<List<string>> data)
     {
         var sw = new StreamWriter("PostomatCells.csv");
-            
+
         sw.WriteLine("cell_id;cell_size;order");
-            
+
         foreach (var line in data)
         {
             sw.WriteLine($"{line[0]};{line[1]};{line[2]}");
         }
+
         sw.Close();
     }
 }

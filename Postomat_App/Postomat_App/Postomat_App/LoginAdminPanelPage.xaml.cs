@@ -4,11 +4,11 @@ using System.Windows.Controls;
 
 namespace Postomat_App;
 
-// Класс для окна входа в режим администратора
+// Страница для входа в режим администратора
 public partial class LoginAdminPanelPage : Page
 {
     public MainWindow ProgramWindow { get; set; }
-    
+
     public LoginAdminPanelPage()
     {
         InitializeComponent();
@@ -29,13 +29,14 @@ public partial class LoginAdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Wrong password!", "Error", 
+            MessageBox.Show("Wrong password!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
         PasswordTextBox.Text = "Password...";
     }
 
-    // Возврат наглавную
+    // Возврат на главную
     private void BackBtn_Click(object sender, RoutedEventArgs e)
     {
         ProgramWindow.OpenStartPage();

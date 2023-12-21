@@ -3,20 +3,24 @@ using System.Collections.Generic;
 
 namespace Postomat_App;
 
+// Обобщенный класс для хранения ячеек
 public class CustomСontainer<T> where T : Cell
 {
-    private List<T> Container { get; set; } = new();
+    private List<T> Container { get; set; } = new(); // Список для хранения ячеек
 
+    // Очистка информации о ячейках
     public void ClearCells()
     {
         Container = new List<T>();
     }
 
+    // Добавление ячейки в список
     public void AddCell(T cell)
     {
         Container.Add(cell);
     }
 
+    // Улаоение ячейки по идентификатору ячейки
     public void DeleteCell(int cellIdentifier)
     {
         for (var i = 0; i < Container.Count; i++)
@@ -31,11 +35,13 @@ public class CustomСontainer<T> where T : Cell
         throw new Exception("Wrong Index!");
     }
 
-    public void SetCellContent(int index, Order? order, Order? extraOrder = null)
+    // Установка значения ячейки по индексу ячейки в списке ячеек
+    public void SetCellContent(int index, Order order, Order extraOrder = null)
     {
         Container[index].SetContent(order, extraOrder);
     }
 
+    // Добавление значения в ячейку по идентификатору ячейки
     public void AddOrderToCell(int cellIdentifier, Order order)
     {
         foreach (var cell in Container)
@@ -47,6 +53,7 @@ public class CustomСontainer<T> where T : Cell
         }
     }
 
+    // Поиск идентификатора ячейки с нужным заказом по номеру заказа
     public int FindCellByOrderNumber(int orderNumber)
     {
         foreach (var cell in Container)
@@ -70,6 +77,7 @@ public class CustomСontainer<T> where T : Cell
         throw new Exception("Wrong order number");
     }
 
+    // Очистка ячейки по идентификатору ячейки
     public void ClearCellByIdentifier(int identifier)
     {
         foreach (var cell in Container)
@@ -81,6 +89,7 @@ public class CustomСontainer<T> where T : Cell
         }
     }
 
+    // Создание форматированных данных для последующей их записи в файл
     public List<List<string>> GetDataForCsv()
     {
         var data = new List<List<string>>();
@@ -88,7 +97,7 @@ public class CustomСontainer<T> where T : Cell
 
         foreach (var cell in Container)
         {
-            if (cell.GetType() == typeof(SingleCell))
+            if (cell.GetType() == typeof(SingleCell)) // Обработка для одиночных ячеек
             {
                 orderString = Convert.ToBoolean(cell.GetOccupancyInformation()) ? cell.Content!.GetOrderString() : "";
                 data.Add(new List<string>
@@ -98,7 +107,7 @@ public class CustomСontainer<T> where T : Cell
                     orderString
                 });
             }
-            else if (cell.GetType() == typeof(DoubleCell))
+            else if (cell.GetType() == typeof(DoubleCell)) // Обработка для двойных ячеек
             {
                 switch (cell.GetOccupancyInformation())
                 {
@@ -133,8 +142,11 @@ public class CustomСontainer<T> where T : Cell
         return data;
     }
 
+    // Поиск подходящей для заказа ячейки
     public int FindSuitableCell(Order order)
     {
+        // Сначала идет перебор по двойным ячейкам, где лежит 1 заказ, проверяется на соответствие получателя и
+        // в случае успеха заказы объединяются
         foreach (var cell in Container)
         {
             if (cell.GetType() != typeof(DoubleCell)) continue;
@@ -155,6 +167,7 @@ public class CustomСontainer<T> where T : Cell
             }
         }
 
+        // Потом идет перебор по всем пустым ячейкам и подбирается подходящая по размеру
         foreach (var cell in Container)
         {
             if (!Convert.ToBoolean(cell.GetOccupancyInformation()) && cell.Size >= order.Size)
@@ -163,6 +176,7 @@ public class CustomСontainer<T> where T : Cell
             }
         }
 
+        // Если ячеек не нашлось возникнет ошибка
         throw new Exception("There is no any suitable cell!");
     }
 }

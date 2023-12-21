@@ -2,29 +2,24 @@
 
 namespace Postomat_App;
 
-// Класс для ячейки постамата
+// Базовый класс для ячейки постамата
 public abstract class Cell
 {
     protected static int Counter; // Статический счетчик для ID
 
     public int Identifier { get; protected set; } // ID ячейки
     public SizeEnum Size { get; protected set; } // Размер ячейки
-        
-    /*  Существует 3 размера ячейки маленький (0), средний (1) и крупный (2)
-        По умолчанию создается средняя ячейка
-        для икслючения ошибок значения меньше 1 приравниваются к маленьким ячейкам,
-        а больше 2 к крупным.
-     */
-        
-    public Order? Content { get; protected set; } // То что лежит в ячейке, может быть null
 
-    public abstract void ClearCell();
-    
-    public abstract void SetContent(Order? order, Order? extraOrder = null);
+    public Order Content { get; protected set; } // То что лежит в ячейке, может быть null
 
-    public abstract void AddOrder(Order? order);
+    public abstract void ClearCell(); // Метод для очистки ячейки
 
-    public abstract int GetOccupancyInformation();
+    public abstract void
+        SetContent(Order order, Order extraOrder = null); // Метод для строгой установки значения ячейки
 
-    public abstract List<int?> GetOrderIdentifier();
+    public abstract void AddOrder(Order order); // Метод для добавляния заказа в ячейку (не строгая установка значения)
+
+    public abstract int GetOccupancyInformation(); // Получение информации о заполненности
+
+    public abstract List<int?> GetOrderIdentifier(); // Получение номера заказа в ячейке
 }

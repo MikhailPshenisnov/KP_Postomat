@@ -4,9 +4,10 @@ using System.Windows.Controls;
 
 namespace Postomat_App;
 
-// Класс для панели администратора
+// Страница для панели администратора
 public partial class AdminPanelPage : Page
 {
+    // Программное окно
     public MainWindow ProgramWindow { get; set; }
 
     public AdminPanelPage()
@@ -25,7 +26,7 @@ public partial class AdminPanelPage : Page
         }
     }
 
-    // Добавление в ячейку заказа (заполнение), аналог доставки у курьера
+    // Заполнение ячейки заказом, аналог доставки у курьера
     private void FillBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -39,7 +40,7 @@ public partial class AdminPanelPage : Page
             MessageBox.Show($"The order was successfully delivered!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             MessageBox.Show($"Incorrect input data or there are no free suitable cells!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
@@ -51,7 +52,7 @@ public partial class AdminPanelPage : Page
         ReceiverTextBox.Text = "Receiver...";
     }
 
-    // Удаление из ячейки заказа (очистка), аналог получения заказа у посетителя
+    // Очистка ячейки от заказа, аналог получения заказа у посетителя
     private void ClearBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -60,7 +61,7 @@ public partial class AdminPanelPage : Page
             MessageBox.Show($"The cell with your order is open, you can pick up your order!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             MessageBox.Show("Incorrect order number!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
@@ -69,7 +70,7 @@ public partial class AdminPanelPage : Page
         OrderIdTextBox.Text = "Id...";
     }
 
-    // Создание пустой ячейки с заданным размером
+    // Создание ячейки по размеру
     private void CreateBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -78,7 +79,7 @@ public partial class AdminPanelPage : Page
             MessageBox.Show($"The cell was created!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             MessageBox.Show("Incorrect cell size!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
@@ -87,7 +88,7 @@ public partial class AdminPanelPage : Page
         CellSizeTextBox.Text = "Size...";
     }
 
-    // Удаление ячейки по id ячейки
+    // Удаление ячейки по идентификатору ячейки ячейки
     private void DeleteBtn_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -96,7 +97,7 @@ public partial class AdminPanelPage : Page
             MessageBox.Show($"The cell was deleted!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        catch (Exception exception)
+        catch (Exception)
         {
             MessageBox.Show("Incorrect cell id!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);

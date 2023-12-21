@@ -2,6 +2,7 @@
 
 namespace Postomat_App;
 
+// Главное окно приложения
 public partial class MainWindow
 {
     private readonly StartPage _startPage = new(); // Стартовая страница
@@ -57,7 +58,6 @@ public partial class MainWindow
         _adminPanelPage.CellIdTextBox.Text = "Id...";
     }
 
-    // Инициализация окна
     public MainWindow()
     {
         InitializeComponent();

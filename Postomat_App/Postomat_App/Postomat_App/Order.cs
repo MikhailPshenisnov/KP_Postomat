@@ -2,17 +2,18 @@
 
 namespace Postomat_App;
 
-// Класс для объекта заказа, объект имеет отличительный номер, размер необходимой ячейки и описание
+// Класс для заказа
 public class Order
 {
-    public int Identifier { get; }
-    public SizeEnum Size { get; }
+    public int Identifier { get; } // Идентификатор
+    public SizeEnum Size { get; } // Размер
 
-    public string Receiver { get; private set; }
+    public string Receiver { get; } // Получатель
 
-    private string Description { get; }
+    private string Description { get; } // Описание
 
-    public Order(int identifier, string receiver, SizeEnum size = SizeEnum.Medium, string description = "No description")
+    public Order(int identifier, string receiver, SizeEnum size = SizeEnum.Medium,
+        string description = "No description")
     {
         if (identifier < 0) throw new Exception("Less than zero!");
         Identifier = identifier;
@@ -25,12 +26,12 @@ public class Order
         {
             throw new Exception("Wrong size!");
         }
-        
+
         Description = description;
 
         Receiver = receiver;
     }
-        
+
     // Для записи в файл с ячейками часто нужна такая запись заказа и так можно представить его в виде строки
     public string GetOrderString()
     {

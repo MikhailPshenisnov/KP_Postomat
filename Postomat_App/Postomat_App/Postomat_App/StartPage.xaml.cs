@@ -3,20 +3,21 @@ using System.Windows.Controls;
 
 namespace Postomat_App
 {
-    // Окно стартового экрана
+    // Стартовая страница
     public partial class StartPage : Page
     {
+        // Программное окно
         public MainWindow ProgramWindow { get; set; }
+
         public StartPage()
         {
             InitializeComponent();
         }
 
-        // Переход к странице получения заказа
+        // Переход к странице посетителя
         private void ReceiveOrderBtn_Click(object sender, RoutedEventArgs e)
         {
             ProgramWindow.OpenReceiveOrderPage();
-            
         }
 
         // Переход к странице доставки
