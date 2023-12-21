@@ -14,7 +14,7 @@ public partial class DeliveryPage : Page
 
     // Обработка нажатия на кнопку получения заказа с обработкой данных введенных пользователем
     // Прописан обработчик ошибок
-    private void ReceiveOrderByNumberBtn_Click(object sender, RoutedEventArgs e)
+    private void DeliverOrderBtn_Click(object sender, RoutedEventArgs e)
     {
         try
         {
@@ -24,6 +24,7 @@ public partial class DeliveryPage : Page
             var receiver = ReceiverTextBox.Text;
 
             if (description == "Description...") description = "";
+            if (receiver is "" or "Receiver...") throw new Exception("Incorrect receiver!");
             
             var newOrder = description == "" ? 
                 new Order(identifier, receiver, (SizeEnum)size) : 

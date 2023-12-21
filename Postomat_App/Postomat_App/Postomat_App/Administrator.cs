@@ -1,14 +1,17 @@
-﻿namespace Postomat_App;
+﻿using System;
+
+namespace Postomat_App;
 
 public static class Administrator
 {
     public static void FillCell(int identifier, string receiver, int size, string description)
     {
         if (description == "Description...") description = "";
-        var newOrder = description == "" ? 
-            new Order(identifier, receiver, (SizeEnum)size) : 
-            new Order(identifier, receiver, (SizeEnum)size, description);
-            
+        if (receiver is "" or "Receiver...") throw new Exception("Incorrect receiver!");
+        var newOrder = description == ""
+            ? new Order(identifier, receiver, (SizeEnum)size)
+            : new Order(identifier, receiver, (SizeEnum)size, description);
+
         Delivery.AddOrderToCell(newOrder);
     }
 
@@ -16,8 +19,8 @@ public static class Administrator
     {
         Customer.ReceiveOrderByNumber(identifier);
     }
-    
-    public static void CreateCell(int identifier)
+
+    public static void CreateCell(string identifier)
     {
         Postomat.AddCell(identifier);
     }

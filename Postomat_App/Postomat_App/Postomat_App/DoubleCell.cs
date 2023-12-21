@@ -41,13 +41,13 @@ public class DoubleCell: Cell
         {
             case 0:
                 SetContent(order);
-                break;
+                return;
             case 1:
                 SetContent(Content, order);
-                break;
+                return;
             case 2:
                 SetContent(order, ExtraContent);
-                break;
+                return;
             case 3:
                 throw new Exception("The cells are already filled!");
         }

@@ -33,8 +33,15 @@ public class SingleCell: Cell
     }
 
     public override void AddOrder(Order? order)
-    { 
-        SetContent(order);
+    {
+        switch (GetOccupancyInformation())
+        {
+            case 0:
+                SetContent(order);
+                break;
+            case 1:
+                throw new Exception("The cells are already filled!");
+        }
     }
 
     public override int GetOccupancyInformation()

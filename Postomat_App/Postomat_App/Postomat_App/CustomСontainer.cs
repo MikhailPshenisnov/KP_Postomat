@@ -50,9 +50,19 @@ public class CustomСontainer<T> where T: Cell
     {
         foreach (var cell in Container)
         {
-            if (Convert.ToBoolean(cell.GetOccupancyInformation()))
+            if (cell.GetType() == typeof(SingleCell))
             {
-                if (cell.GetOrderIdentifier()[0] == orderNumber)
+                if (Convert.ToBoolean(cell.GetOccupancyInformation()))
+                {
+                    if (cell.GetOrderIdentifier()[0] == orderNumber)
+                    {
+                        return cell.Identifier;
+                    }
+                }
+            }
+            else if (cell.GetType() == typeof(DoubleCell))
+            {
+                if (cell.GetOccupancyInformation() > 0 && cell.GetOrderIdentifier().Contains(orderNumber))
                 {
                     return cell.Identifier;
                 }
@@ -75,20 +85,53 @@ public class CustomСontainer<T> where T: Cell
     public List<List<string>> GetDataForCsv()
     {
         var data = new List<List<string>>();
+        var orderString = "";
 
         foreach (var cell in Container)
         {
-            var orderString = Convert.ToBoolean(cell.GetOccupancyInformation()) ? 
-                cell.Content!.GetOrderString() : 
-                "";
-            data.Add(new List<string>
-            { 
-                cell.Identifier.ToString(),
-                ((int)cell.Size).ToString(), 
-                orderString
-            });
+            if (cell.GetType() == typeof(SingleCell))
+            {
+                orderString = Convert.ToBoolean(cell.GetOccupancyInformation()) ? 
+                    cell.Content!.GetOrderString() : 
+                    "";
+                data.Add(new List<string>
+                { 
+                    cell.Identifier.ToString(),
+                    ((int)cell.Size).ToString(), 
+                    orderString
+                });
+            }
+            else if (cell.GetType() == typeof(DoubleCell))
+            {
+                switch (cell.GetOccupancyInformation())
+                {
+                    case 0:
+                        orderString = "|";
+                        break;
+                    case 1:
+                        orderString = $"{cell.Content!.GetOrderString()}|";
+                        break;
+                    case 2:
+                        orderString = $"|{(cell as DoubleCell)!.ExtraContent!.GetOrderString()}";
+                        break;
+                    case 3:
+                        orderString = $"{cell.Content!.GetOrderString()}|" +
+                                      $"{(cell as DoubleCell)!.ExtraContent!.GetOrderString()}";
+                        break;
+                }
+                data.Add(new List<string>
+                { 
+                    cell.Identifier.ToString(),
+                    (int)cell.Size + "d", 
+                    orderString
+                });
+            }
+            else
+            {
+                throw new Exception("Something went wrong with CustomContainer GetDataForCsv()!");
+            }
         }
-
+        
         return data;
     }
 
@@ -96,7 +139,27 @@ public class CustomСontainer<T> where T: Cell
     {
         foreach (var cell in Container)
         {
-            if (!Convert.ToBoolean(cell.GetOccupancyInformation()) && (int)cell.Size >= (int)order.Size)
+            if (cell.GetType() != typeof(DoubleCell)) continue;
+            if (cell.Size < order.Size) continue;
+            if (cell.GetOccupancyInformation() > 0 && cell.GetOccupancyInformation() < 3)
+            {
+                switch (cell.GetOccupancyInformation())
+                {
+                    case 1:
+                        if (cell.Content!.Receiver == order.Receiver) 
+                            return cell.Identifier;
+                        break;
+                    case 2:
+                        if ((cell as DoubleCell)!.ExtraContent!.Receiver == order.Receiver) 
+                            return cell.Identifier;
+                        break;
+                }
+            }
+        }
+        
+        foreach (var cell in Container)
+        {
+            if (!Convert.ToBoolean(cell.GetOccupancyInformation()) && cell.Size >= order.Size)
             {
                 return cell.Identifier;
             }

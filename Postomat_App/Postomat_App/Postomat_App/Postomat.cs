@@ -50,9 +50,17 @@ public static class Postomat
     }
 
     // Добавление ячейки с соответствующим размером
-    public static void AddCell(int cellSize)
+    public static void AddCell(string cellSize)
     {
-        PostomatCells.AddCell(new SingleCell((SizeEnum)cellSize));
+        if (!cellSize.Contains("d"))
+        {
+            PostomatCells.AddCell(new SingleCell((SizeEnum)int.Parse(cellSize)));
+        }
+        else
+        {
+            PostomatCells.AddCell(new DoubleCell((SizeEnum)int.Parse(cellSize.Split('d')[0])));
+        }
+        
         WriteCellsToCsv();
     }
 

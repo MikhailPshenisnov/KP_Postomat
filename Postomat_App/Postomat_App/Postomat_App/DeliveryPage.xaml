@@ -82,7 +82,7 @@
                 <ColumnDefinition Width="4*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
-            <Button Name="DeliverOrderBtn" Click="ReceiveOrderByNumberBtn_Click" Grid.Column="1"
+            <Button Name="DeliverOrderBtn" Click="DeliverOrderBtn_Click" Grid.Column="1"
                     Style="{StaticResource RoundButtonStyle}">
                 <TextBlock Text="Deliver" HorizontalAlignment="Center" VerticalAlignment="Center"
                            FontFamily="Verdana" FontSize="30" TextWrapping="Wrap" TextAlignment="Center" />

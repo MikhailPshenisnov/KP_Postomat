@@ -7,8 +7,8 @@ public class Order
 {
     public int Identifier { get; }
     public SizeEnum Size { get; }
-    
-    public string Receiver { get; set; }
+
+    public string Receiver { get; private set; }
 
     private string Description { get; }
 

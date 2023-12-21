@@ -76,7 +76,7 @@ public partial class AdminPanelPage : Page
     {
         try
         {
-            Administrator.CreateCell(int.Parse(CellSizeTextBox.Text));
+            Administrator.CreateCell(CellSizeTextBox.Text);
             MessageBox.Show($"The cell was created!", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
