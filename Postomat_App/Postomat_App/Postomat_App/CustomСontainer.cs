@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Postomat_App;
 
-public class CustomСontainer<T> where T: Cell
+public class CustomСontainer<T> where T : Cell
 {
     private List<T> Container { get; set; } = new();
 
@@ -27,12 +27,13 @@ public class CustomСontainer<T> where T: Cell
                 return;
             }
         }
+
         throw new Exception("Wrong Index!");
     }
 
-    public void SetCellContent(int index, Order? order)
+    public void SetCellContent(int index, Order? order, Order? extraOrder = null)
     {
-        Container[index].SetContent(order);
+        Container[index].SetContent(order, extraOrder);
     }
 
     public void AddOrderToCell(int cellIdentifier, Order order)
@@ -45,19 +46,16 @@ public class CustomСontainer<T> where T: Cell
             }
         }
     }
-    
+
     public int FindCellByOrderNumber(int orderNumber)
     {
         foreach (var cell in Container)
         {
             if (cell.GetType() == typeof(SingleCell))
             {
-                if (Convert.ToBoolean(cell.GetOccupancyInformation()))
+                if (Convert.ToBoolean(cell.GetOccupancyInformation()) && cell.GetOrderIdentifier()[0] == orderNumber)
                 {
-                    if (cell.GetOrderIdentifier()[0] == orderNumber)
-                    {
-                        return cell.Identifier;
-                    }
+                    return cell.Identifier;
                 }
             }
             else if (cell.GetType() == typeof(DoubleCell))
@@ -68,9 +66,10 @@ public class CustomСontainer<T> where T: Cell
                 }
             }
         }
+
         throw new Exception("Wrong order number");
     }
-    
+
     public void ClearCellByIdentifier(int identifier)
     {
         foreach (var cell in Container)
@@ -91,13 +90,11 @@ public class CustomСontainer<T> where T: Cell
         {
             if (cell.GetType() == typeof(SingleCell))
             {
-                orderString = Convert.ToBoolean(cell.GetOccupancyInformation()) ? 
-                    cell.Content!.GetOrderString() : 
-                    "";
+                orderString = Convert.ToBoolean(cell.GetOccupancyInformation()) ? cell.Content!.GetOrderString() : "";
                 data.Add(new List<string>
-                { 
+                {
                     cell.Identifier.ToString(),
-                    ((int)cell.Size).ToString(), 
+                    ((int)cell.Size).ToString(),
                     orderString
                 });
             }
@@ -119,10 +116,11 @@ public class CustomСontainer<T> where T: Cell
                                       $"{(cell as DoubleCell)!.ExtraContent!.GetOrderString()}";
                         break;
                 }
+
                 data.Add(new List<string>
-                { 
+                {
                     cell.Identifier.ToString(),
-                    (int)cell.Size + "d", 
+                    (int)cell.Size + "d",
                     orderString
                 });
             }
@@ -131,7 +129,7 @@ public class CustomСontainer<T> where T: Cell
                 throw new Exception("Something went wrong with CustomContainer GetDataForCsv()!");
             }
         }
-        
+
         return data;
     }
 
@@ -146,17 +144,17 @@ public class CustomСontainer<T> where T: Cell
                 switch (cell.GetOccupancyInformation())
                 {
                     case 1:
-                        if (cell.Content!.Receiver == order.Receiver) 
+                        if (cell.Content!.Receiver == order.Receiver)
                             return cell.Identifier;
                         break;
                     case 2:
-                        if ((cell as DoubleCell)!.ExtraContent!.Receiver == order.Receiver) 
+                        if ((cell as DoubleCell)!.ExtraContent!.Receiver == order.Receiver)
                             return cell.Identifier;
                         break;
                 }
             }
         }
-        
+
         foreach (var cell in Container)
         {
             if (!Convert.ToBoolean(cell.GetOccupancyInformation()) && cell.Size >= order.Size)

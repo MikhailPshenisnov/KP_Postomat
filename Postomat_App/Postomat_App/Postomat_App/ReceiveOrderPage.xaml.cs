@@ -25,8 +25,7 @@ public partial class ReceiveOrderPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect order number!\n" +
-                            $"{exception.Message}", "Error", 
+            MessageBox.Show("Incorrect order number!", "Error", 
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
         OrderNumberTextBox.Text = "Enter your code...";

@@ -41,8 +41,7 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show($"Incorrect input data or there are no free suitable cells!\n" +
-                            $"{exception.Message}", "Error",
+            MessageBox.Show($"Incorrect input data or there are no free suitable cells!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -63,8 +62,7 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect order number!\n" +
-                            $"{exception.Message}", "Error",
+            MessageBox.Show("Incorrect order number!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -82,8 +80,7 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect cell size!\n" +
-                            $"{exception.Message}", "Error",
+            MessageBox.Show("Incorrect cell size!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -101,8 +98,7 @@ public partial class AdminPanelPage : Page
         }
         catch (Exception exception)
         {
-            MessageBox.Show("Incorrect cell id!\n" +
-                            $"{exception.Message}", "Error",
+            MessageBox.Show("Incorrect cell id!", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 

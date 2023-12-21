@@ -17,27 +17,63 @@ public static class Postomat
 
         for (var i = 1; i < data.Count; i++)
         {
-            PostomatCells.AddCell(new SingleCell((SizeEnum)int.Parse(data[i][1])));
-                
-            // Проверка на пустоту ячейки и обработка null
-            if (data[i][2] == "")
+            if (!data[i][1].Contains("d"))
             {
-                PostomatCells.SetCellContent(i - 1, null);
+                PostomatCells.AddCell(new SingleCell((SizeEnum)int.Parse(data[i][1])));
+                var order = data[i][2];
+                if (order == "")
+                {
+                    PostomatCells.SetCellContent(i - 1, null);
+                }
+                else
+                {
+                    var orderData = data[i][2].Split(',');
+                    PostomatCells.SetCellContent
+                    (
+                        i - 1, 
+                        new Order
+                        (
+                            int.Parse(orderData[0]),
+                            orderData[3], 
+                            (SizeEnum)int.Parse(orderData[1]), 
+                            orderData[2]
+                        )
+                    );
+                }
             }
             else
             {
-                var orderData = data[i][2].Split(',');
-                PostomatCells.SetCellContent
-                (
-                    i - 1, 
-                    new Order
+                PostomatCells.AddCell(new DoubleCell((SizeEnum)int.Parse(data[i][1].Split('d')[0])));
+                var order1 = data[i][2].Split('|')[0];
+                var order2 = data[i][2].Split('|')[1];
+
+                Order? orderObj1 = null;
+                Order? orderObj2 = null;
+                
+                if (order1 != "")
+                {
+                    var order1Data = order1.Split(',');
+                    orderObj1 = new Order
+                        (
+                            int.Parse(order1Data[0]),
+                            order1Data[3], 
+                            (SizeEnum)int.Parse(order1Data[1]), 
+                            order1Data[2]
+                        );
+                }
+                if (order2 != "")
+                {
+                    var order2Data = order2.Split(',');
+                    orderObj2 = new Order
                     (
-                        int.Parse(orderData[0]),
-                        orderData[3], 
-                        (SizeEnum)int.Parse(orderData[1]), 
-                        orderData[2]
-                    )
-                );
+                        int.Parse(order2Data[0]),
+                        order2Data[3], 
+                        (SizeEnum)int.Parse(order2Data[1]), 
+                        order2Data[2]
+                    );
+                }
+
+                PostomatCells.SetCellContent(i - 1, orderObj1, orderObj2);
             }
         }
         WriteCellsToCsv();
