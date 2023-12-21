@@ -86,7 +86,7 @@ public static class Postomat
     // Запись данных из хранилища постомата в CSV файл / Обновление файла при изменении данных
     private static void WriteCellsToCsv()
     {
-        CsvTools.WriteToCsv(PostomatCells.GetDataForCsv());
+        CsvTools.WriteToCsv(PostomatCells.GetDataForCsv(), "PostomatCells.csv");
     }
 
     // Добавление ячейки с соответствующим размером

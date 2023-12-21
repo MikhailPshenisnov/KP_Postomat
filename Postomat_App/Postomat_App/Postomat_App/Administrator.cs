@@ -24,9 +24,9 @@ public static class Administrator
     }
 
     // Создание ячейке по размеру
-    public static void CreateCell(string identifier)
+    public static void CreateCell(string size)
     {
-        Postomat.AddCell(identifier);
+        Postomat.AddCell(size);
     }
 
     // Удаление ячейки по идентификатору ячейки

@@ -62,9 +62,9 @@ public static class CsvTools
     }
 
     // Функция для записи отформатированных данных в csv файл
-    public static void WriteToCsv(List<List<string>> data)
+    public static void WriteToCsv(List<List<string>> data, string filename)
     {
-        var sw = new StreamWriter("PostomatCells.csv");
+        var sw = new StreamWriter(filename);
 
         sw.WriteLine("cell_id;cell_size;order");
 
