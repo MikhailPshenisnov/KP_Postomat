@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Postomat_App"
         mc:Ignorable="d"
-        Title="Nozo postomat" Height="420" Width="700" MinHeight="420" MinWidth="700" MaxHeight="1080" MaxWidth="1920"
+        Title="Nozo postomat" Height="467" Width="735" MinHeight="467" MinWidth="735" MaxHeight="1100" MaxWidth="1940"
         Background="LightSlateGray">
     <Grid>
         <!-- Фрейм для отображения страниц -->
